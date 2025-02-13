@@ -2,7 +2,7 @@
 #include <string.h>
 
 typedef struct {
-    char id[12]; 
+    char id[20]; 
     int score;   
 } studentRecord;
 
@@ -19,16 +19,15 @@ void init(studentRecord list[], int size) {
 }
 
 void enterScore(studentRecord list[], int size) {
-    char input_id[12];
+    char input_id[20];
     int input_score;
     
     scanf("%s %d", input_id, &input_score); 
     
     for (int i = 0; i < size; i++) {
-        if (strlen(input_id) <= strlen(list[i].id) &&
-            strcmp(list[i].id + (strlen(list[i].id) - strlen(input_id)), input_id) == 0) {
+        if (strstr(list[i].id, input_id)) {
             list[i].score = input_score;
-            break; 
+            break;
         }
     }
 }
