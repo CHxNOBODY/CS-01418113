@@ -3,7 +3,15 @@
 typedef enum {MON, TUE, WED, THU, FRI, SAT, SUN} DayOfWeek;  
 
 DayOfWeek findDayOfWeek(int day, int month) {
+	int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    int totalDays = 0;
 
+    for (int i = 0; i < month - 1; i++) {
+        totalDays += daysInMonth[i];
+    }
+    totalDays += day - 1; 
+
+    return (TUE + totalDays) % 7;
 }
 
 int main()
