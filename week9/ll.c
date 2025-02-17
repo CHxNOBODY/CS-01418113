@@ -10,6 +10,8 @@ typedef struct __Node Node;
 typedef Node* List;
 
 void insert(List *list, int value);
+void insertFirst(List* list, int value);
+void delete(List* list, int value);
 void print(List list);
 void printWhile(List list);
 
@@ -22,16 +24,66 @@ int main() {
     printWhile(head);
     insert(&head, 88);
     print(head);
-
+    insertFirst(&head, 50);
+    print(head); //50->10->20->15->88->
     return 0;
 }
 
-void insert(List* list, int value){
+void delete(List* list, int value) {
+    if (*list == NULL) return;
+
+    Node* current = *list;
+    Node* prev = NULL;
+
+    while (current != NULL) {
+        if (current -> data == value) break;
+        prev = current;
+        current = current -> next;
+    }
+
+    // NOT FOUND
+    if (current == NULL) {
+        return;
+    }
+
+    // FOUND
+    if (prev == NULL) {
+        // found at root node, need to delete root node
+        *list = current -> next;
+        free(current);
+        return;
+    }
+
+    // found at non-root node
+    prev -> next = current -> next;
+    free(current);
+}
+
+void insertFirst(List* list, int value) {
     Node* node = (Node*) malloc(sizeof(Node));
     node -> data = value;
     node -> next = NULL;
 
-    if (*list == NULL){
+    if (*list == NULL) {
+        *list = node;
+        return;
+    }
+
+    node -> next = *list;
+    *list = node;
+
+    Node* current = *list;
+    Node* prev = NULL;
+
+}
+
+
+void insert(List* list, int value) {
+    Node* node = (Node*) malloc(sizeof(Node));
+    node -> data = value;
+    node -> next = NULL;
+
+    if (*list == NULL) {
         *list = node;
         return;
     }
@@ -39,7 +91,7 @@ void insert(List* list, int value){
     Node* current = *list;
     Node* prev = NULL;
 
-    while(current != NULL){
+    while(current != NULL) {
         prev = current;
         current = current -> next;
     }
@@ -47,8 +99,8 @@ void insert(List* list, int value){
     prev -> next = node;
 }
 
-void print(List list){ //Recersive
-    if (list == NULL){
+void print(List list) { //Recersive
+    if (list == NULL) {
         return;
     }
     printf("%d->", list -> data);
