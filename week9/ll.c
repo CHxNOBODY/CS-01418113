@@ -26,6 +26,11 @@ int main() {
     print(head);
     insertFirst(&head, 50);
     print(head); //50->10->20->15->88->
+    insert(&head, 90);
+    print(head);
+    insert(&head, 100);
+    print(head);
+    delete(head, 100);
     return 0;
 }
 
@@ -71,10 +76,6 @@ void insertFirst(List* list, int value) {
 
     node -> next = *list;
     *list = node;
-
-    Node* current = *list;
-    Node* prev = NULL;
-
 }
 
 
