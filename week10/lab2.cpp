@@ -23,7 +23,14 @@ public:
 };
 
 int main() {
-    
+    string heroName;
+    int heroLevel;
+
+    cin >> heroName >> heroLevel;
+
+    Hero hero(heroName, heroLevel);
+
+    cout << hero.getName() << " " << hero.getLevel() << endl;
 
     return 0;
 }
