@@ -94,21 +94,3 @@ public:
         return r;
     }
 };
-
-int main() {
-    Time a(24, 0, 0);
-    Time b(1, 1, 1);
-    cout << a.toString() << endl;
-    cout << b.toString() << endl;
-    Time c = a.add(b);
-    cout << a.getHour() << endl;
-    cout << a.getMinute() << endl;
-    cout << a.getSecond() << endl;
-    cout << c.toString() << endl;
-    cout << a.getDuration() << endl;
-    cout << b.getDuration() << endl;
-    cout << a.subtract(b) << endl;
-    cout << b.subtract(a) << endl;
-    cout << a.equals(b) << endl;
-    return 0;
-}
