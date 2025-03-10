@@ -1,4 +1,3 @@
-//05 Weapon Part 3
 #include <iostream>
 #include <vector>
 using namespace std;

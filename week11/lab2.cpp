@@ -1,4 +1,3 @@
-//02 SquareRectangle inherit Rectangle
 #include <iostream>
 #include <cmath>
 using namespace std;

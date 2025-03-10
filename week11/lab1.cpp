@@ -1,4 +1,3 @@
-//01 Class MusicPlaylist
 #include <iostream>
 #include <string>
 using namespace std;
