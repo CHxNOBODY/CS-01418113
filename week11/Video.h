@@ -13,6 +13,8 @@ class Video : public Media {
     string durationToString();
     string info();
     string toScreen();
+    virtual string info();
+    virtual string toScreen() = 0;
 };
 
 #endif

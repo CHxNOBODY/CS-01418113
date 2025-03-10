@@ -1,4 +1,5 @@
 #include "Media.h"
+#include <sstream> // เพิ่ม library sstream
 using namespace std;
 
 Media::Media(string title, int sizeInBytes)
@@ -22,4 +23,21 @@ double Media::getSizeInMB() {
 
 double Media::getSizeInGB() {
   return getSizeInMB() / 1024.0;
+}
+
+// เพิ่ม implementation ของ Media::info()
+string Media::info() {
+  stringstream ss;
+  double size = getSizeInGB();
+  string sizeUnit = "GB";
+  if (size < 1) {
+    size = getSizeInMB();
+    sizeUnit = "MB";
+  } 
+  if (size < 1) {
+    size = getSizeInKB();
+    sizeUnit = "KB";
+  }
+  ss << getTitle() << " (" << size << sizeUnit << ")";
+  return ss.str();
 }
