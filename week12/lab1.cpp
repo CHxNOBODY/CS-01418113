@@ -11,18 +11,18 @@ public:
 
 class RightRectangularPyramid : public Shape3D {
 private:
-    double width, lenght, height;
+    double width, length , height;
 public:
     RightRectangularPyramid(double w = 0, double l = 0, double h = 0) {
         this -> width = w;
-        this -> lenght = l;
+        this -> length  = l;
         this -> height = h;
     } 
     virtual double volumn() {
-        return (1.0 / 3.0 * (width * lenght) * height);
+        return (1.0 / 3.0) * width * length * height;
     } 
     virtual double surfaceArea() {
-        return (width * lenght);
+        return (length * width) + ((1.0/2.0) * width * sqrt((4 * pow(height, 2)) + pow(length, 2))) + ((1.0/2.0) * length * sqrt((4 * pow(height, 2)) + pow(width, 2)));
     }
 };
 
@@ -30,14 +30,14 @@ class Sphere : public Shape3D {
 private:
     double radius;
 public:
-    Sphere(double r) {
+    Sphere(double r = 0) {
         this -> radius = r;
     }
     virtual double volumn() {
         return (4.0 / 3.0) * M_PI * pow(radius, 3);
     }
     double surfaceArea() {
-        return (4.0 * M_PI)* pow(radius, 2);
+        return (4.0 * M_PI) * pow(radius, 2);
     }
 };
 
