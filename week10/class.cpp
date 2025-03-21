@@ -18,13 +18,14 @@ public:
     Book();      // default Constructor
     Book(string t); // This call Constructor chaining
     Book(string t, int total); // Constructor (Overloading)
-// Note : function in class you can also use const for set that function cannot change.
     void setTitle(string title) ; // method name use lowerCamerCase
     string getTitle();  
     int getTotalPage();
     void readMore(int page);
     string toString();
 };
+
+// Note : function in class you can also use const for set that function cannot change.
 
 int main() {
     Book book1;
