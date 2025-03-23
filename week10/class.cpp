@@ -25,6 +25,7 @@ public:
     string toString();
 };
 
+// Overload Constructor = Same constructor but parameter not the same like example.
 // Note : function in class you can also use const for set that function cannot change.
 
 int main() {
